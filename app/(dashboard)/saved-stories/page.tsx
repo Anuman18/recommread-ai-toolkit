@@ -1,6 +1,7 @@
 // app/(dashboard)/saved-stories/page.tsx
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+// AFTER
 import StoryList from '@/components/saved-stories/StoryList';
 import { Story } from '@/lib/types';
 
@@ -18,7 +19,7 @@ async function getStories(supabase: any): Promise<Story[]> {
 }
 
 export default async function SavedStoriesPage() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

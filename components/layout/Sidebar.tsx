@@ -2,10 +2,10 @@
 // ... other imports
 import { ThemeToggle } from './ThemeToggle';
 
-const Sidebar = () => {
+export const Sidebar = () => {
   // ... existing code
   return (
-    <aside ...>
+    <aside>
       {/* ... existing nav code ... */}
       <div className="mt-auto">
         <ThemeToggle />
