@@ -1,9 +1,9 @@
-// app/api/generate-title/route.ts
+// app/api/suggest-genre/route.ts
 
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-import { generateTitleAndTaglinePrompt } from '@/utils/prompts';
+import { suggestGenrePrompt } from '@/utils/prompts';
 
 export async function POST(request: Request) {
   const cookieStore = cookies();
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const prompt = generateTitleAndTaglinePrompt(story);
+    const prompt = suggestGenrePrompt(story);
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) throw new Error("GEMINI_API_KEY is not set");
 
@@ -51,6 +51,6 @@ export async function POST(request: Request) {
 
   } catch (error: any) {
     console.error(error);
-    return NextResponse.json({ error: error.message || 'Failed to generate titles' }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Failed to suggest genre' }, { status: 500 });
   }
 }

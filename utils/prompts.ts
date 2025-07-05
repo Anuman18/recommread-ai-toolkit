@@ -1,21 +1,27 @@
-// utils/prompts.ts
+// Add this to utils/prompts.ts
 
-export const generateStoryPrompt = (
-  topic: string,
-  genre: string,
-  tone: string
-): string => {
+export const suggestGenrePrompt = (story: string): string => {
   return `
-You are an expert storyteller. Your task is to write a compelling short story based on the user's request.
+You are a literary analyst with deep knowledge of genres and subgenres. Your task is to analyze the provided story and suggest the most fitting genre.
 
 **Instructions:**
-1.  **Topic:** Write a story about: "${topic}".
-2.  **Genre:** The story must be in the **${genre}** genre.
-3.  **Tone:** The tone of the story should be **${tone}**.
-4.  **Length:** The story should be between 400 and 600 words.
-5.  **Format:** The output should be a single block of text, without any titles, headings, or markdown formatting other than paragraphs. Start the story directly.
-6.  **Content:** Ensure the story has a clear beginning, middle, and end. Develop at least one interesting character.
+1.  Read the story carefully, paying attention to its plot, setting, tone, and themes.
+2.  Determine the primary genre and a potential subgenre.
+3.  Provide a brief, one-sentence justification for your choice.
+4.  **Format your response as a single, valid JSON object.** Do not include any text before or after the JSON.
 
-Begin the story now.
+**JSON Schema:**
+{
+  "genre": "Suggested Primary Genre",
+  "subgenre": "Suggested Subgenre",
+  "justification": "A brief explanation of why this genre fits."
+}
+
+**Story:**
+---
+${story}
+---
+
+Now, provide the JSON response.
 `;
 };
