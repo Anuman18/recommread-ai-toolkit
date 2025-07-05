@@ -3,25 +3,17 @@ import Tabs from '@/components/ui/Tabs';
 import StoryGenerator from '@/components/ai-tools/StoryGenerator';
 import TitleGenerator from '@/components/ai-tools/TitleGenerator';
 import GenreSuggestor from '@/components/ai-tools/GenreSuggestor';
-import { BookPlus, Milestone, Tag } from 'lucide-react';
+import StoryRewriter from '@/components/ai-tools/StoryRewriter';
+import ToneAnalyzer from '@/components/ai-tools/ToneAnalyzer';
+import { BookPlus, Milestone, Tag, Wand2, BarChart3 } from 'lucide-react';
 
 const AIToolsPage = () => {
   const tools = [
-    {
-      label: 'Story Generator',
-      icon: BookPlus,
-      content: <StoryGenerator />,
-    },
-    {
-      label: 'Title & Tagline',
-      icon: Milestone,
-      content: <TitleGenerator />,
-    },
-    {
-      label: 'Genre Suggestor',
-      icon: Tag,
-      content: <GenreSuggestor />,
-    },
+    { label: 'Story Generator', icon: BookPlus, content: <StoryGenerator /> },
+    { label: 'Title & Tagline', icon: Milestone, content: <TitleGenerator /> },
+    { label: 'Genre Suggestor', icon: Tag, content: <GenreSuggestor /> },
+    { label: 'Story Rewriter', icon: Wand2, content: <StoryRewriter /> },
+    { label: 'Tone Analyzer', icon: BarChart3, content: <ToneAnalyzer /> },
   ];
 
   return (
